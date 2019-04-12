@@ -1,0 +1,7 @@
+Instructions-
+
+1. copy the contents of the firmware folder to an SD card then insert the card into the readeron the MKS TFT Display. I am using the 3.2" varriant and that is all that will work with this OS. 
+2. Power on the board, it will automatically install the firmware. 
+3. Once it powers on you are ready to go! 
+
+Designed by Isaac Norris from Asheville NC! If you have any questions email me at flightfixit@gmail.com

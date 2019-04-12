@@ -1,0 +1,31 @@
+Okay so in the smoothieware docs on zprobes it states that a zprobe is not an endstop and cannot be used to home the z axis. But it can.
+
+So I defined it as follows:
+gamma_min_endstop                            1.29!^            #
+#gamma_max_endstop                           1.28!^            #
+gamma_homing_direction                       home_to_min       #
+gamma_min                                    0                #
+gamma_max                                    183              #
+
+#probe endstop
+#probe_pin                                   1.29!^            # optional pin for probe
+
+# optional Z probe
+zprobe.enable                                true           # set to true to enable a zprobe
+zprobe.probe_pin                             1.29!^          # pin probe is attached to if NC remove the !
+zprobe.slow_feedrate                         10               # mm/sec probe feed rate
+zprobe.debounce_ms                           1             # set if noisy
+zprobe.fast_feedrate                         100             # move feedrate mm/sec
+zprobe.probe_height                          5               # how much above bed to start probe
+
+The gamma (Z) endstop pin is 1.29 which is the ramps z_min_endstop, it is also defined as a zprobe, the ! after it reverses the probe logic i.e. equivalent to true enstop logic in Marlin.
+
+I then home using 
+G28 x
+G28 Y
+G1 X135 Y100 (middle of my 270x200 bed)
+G28 Z
+
+Then probe using whichever probing strategy such as grid levelling I have defined.
+
+You can use your probe as z_min_endstop for homing and probing.
